@@ -1,93 +1,54 @@
 <?php
 
-use Illuminate\Support\Facades\Route; // Importa la clase Route de Laravel para definir rutas de la aplicación.
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
 
-// Ruta GET para la URL raíz ('/')
-Route::get('/', function () {
-    // Retorna un mensaje simple 'welcome' cuando se accede a la raíz del sitio.
-    return 'welcome';
-});
+// Ruta para listar los comentarios
+Route::get('/comments', [CommentController::class, 'index']);
 
-// Ruta GET para '/Merda'
-Route::get('/Merda', function () {
-    // Retorna un mensaje personalizado 'welcome Cabro' cuando se accede a '/Merda'.
-    return 'welcome Cabro';
-});
+// Ruta para mostrar el formulario de creación de un nuevo comentario
+Route::get('/comments/create', [CommentController::class, 'create']);
 
-// Ruta GET para '/hola'
-Route::get('/hola', function () {
-    $output = ''; // Inicializa una variable $output como una cadena vacía.
-    
-    // Bucle for que se ejecuta 1000 veces.
-    for ($i = 0; $i < 1000; $i++) {
-        // En cada iteración, agrega la palabra 'Hola ' a la variable $output.
-        $output .= 'Hola ';
-    }
-    
-    // Retorna la cadena $output que contiene 'Hola ' repetido 1000 veces.
-    return $output;
-});
+// Ruta para almacenar un nuevo comentario
+Route::post('/comments', [CommentController::class, 'store']);
 
-// Ruta GET para '/adios'
-Route::get('/adios', function () {
-    // Define un script JavaScript como cadena, que contiene un bucle para escribir 'Adios ' 10,000 veces.
-    $script = "<script>
-        for (let i = 0; i < 10000; i++) {
-            document.write('Adios ');
-        }
-    </script>";
+// Ruta para mostrar un comentario específico
+Route::get('/comments/{commentid}', [CommentController::class, 'show']);
 
-    // Escapa el script usando htmlspecialchars para mostrarlo como texto sin ejecutarlo en el navegador.
-    return htmlspecialchars($script);
-});
+// Ruta para mostrar el formulario de edición de un comentario existente
+Route::get('/comments/{commentid}/edit', [CommentController::class, 'edit']);
+
+// Ruta para actualizar un comentario existente
+Route::patch('/comments/{commentid}', [CommentController::class, 'update']);
+
+// Ruta para eliminar un comentario
+Route::delete('/comments/{commentid}', [CommentController::class, 'destroy']);
 
 
-// GET: Leer datos
-Route::get('/productos', function () {
-    // Define una ruta GET para '/productos'.
-    // Esta ruta se utiliza para obtener una lista de productos.
-    // Responde con la cadena 'Lista de productos'.
-    return 'Lista de productos';
-});
+/*
+//Actualizaremos las rutas despues de que en el cointrolador actualicemos los metodos para utilizar Eloquent
 
-// POST: Crear nuevos datos
-Route::post('/productos', function () {
-    // Define una ruta POST para '/productos'.
-    // Esta ruta se utiliza para crear un nuevo producto.
-    // Responde con la cadena 'Producto creado'.
-    return 'Producto creado';
-});
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
 
-// PUT: Reemplazar datos existentes
-Route::put('/productos/{id}', function ($id) {
-    // Define una ruta PUT para '/productos/{id}'.
-    // Esta ruta se utiliza para actualizar completamente un producto existente especificado por su ID.
-    // El {id} es un parámetro dinámico que representa el ID del producto.
-    // Responde con la cadena "Producto {id} actualizado completamente", reemplazando {id} con el valor real del parámetro.
-    return "Producto {$id} actualizado completamente";
-});
+// Ruta para listar los comentarios
+Route::get('/comments', [CommentController::class, 'index']);
 
-// PATCH: Actualizar parcialmente datos existentes
-Route::patch('/productos/{id}', function ($id) {
-    // Define una ruta PATCH para '/productos/{id}'.
-    // Esta ruta se utiliza para actualizar parcialmente un producto existente especificado por su ID.
-    // Similar al método PUT, pero solo actualiza algunos campos en lugar de reemplazar todo el recurso.
-    // Responde con la cadena "Producto {id} actualizado parcialmente".
-    return "Producto {$id} actualizado parcialmente";
-});
+// Ruta para mostrar el formulario de creación
+Route::get('/comments/create', [CommentController::class, 'create'])->middleware('auth');
 
-// DELETE: Eliminar datos
-Route::delete('/productos/{id}', function ($id) {
-    // Define una ruta DELETE para '/productos/{id}'.
-    // Esta ruta se utiliza para eliminar un producto existente especificado por su ID.
-    // Responde con la cadena "Producto {id} eliminado".
-    return "Producto {$id} eliminado";
-});
+// Ruta para guardar un nuevo comentario
+Route::post('/comments', [CommentController::class, 'store'])->middleware('auth');
 
-// OPTIONS: Consultar opciones disponibles
-Route::options('/productos', function () {
-    // Define una ruta OPTIONS para '/productos'.
-    // Este método se utiliza para solicitar al servidor qué métodos HTTP están disponibles para el recurso '/productos'.
-    // Responde con un JSON que indica los métodos disponibles: GET, POST, PUT, PATCH y DELETE.
-    return response()->json(['GET', 'POST', 'PUT', 'PATCH', 'DELETE']);
-});
+// Ruta para mostrar un comentario específico
+Route::get('/comments/{id}', [CommentController::class, 'show']);
+
+// Ruta para mostrar el formulario de edición
+Route::get('/comments/{id}/edit', [CommentController::class, 'edit'])->middleware('auth');
+
+// Ruta para actualizar un comentario existente
+Route::patch('/comments/{id}', [CommentController::class, 'update'])->middleware('auth');
+
+// Ruta para eliminar un comentario
+Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->middleware('auth');
+*/

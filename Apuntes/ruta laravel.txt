@@ -1,0 +1,8 @@
+cd /mnt/c/Users/PC/OneDrive/Escritorio/Segundo\ DAW/Desarrollo\ web\ en\ entorno\ servidor/Practicas/example-app
+
+vendor/bin/sail up
+
+
+--- Atajo para abrir contenedores Docker desde Visual ---
+
+CRTL + SHIFT + P y escribir "Remote-Containers: Attach to Running Container"
