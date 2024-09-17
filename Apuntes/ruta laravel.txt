@@ -1,3 +1,5 @@
+PROJECTE example_app
+
 cd /mnt/c/Users/PC/OneDrive/Escritorio/Segundo\ DAW/Desarrollo\ web\ en\ entorno\ servidor/Practicas/example-app
 
 vendor/bin/sail up
@@ -6,3 +8,18 @@ vendor/bin/sail up
 --- Atajo para abrir contenedores Docker desde Visual ---
 
 CRTL + SHIFT + P y escribir "Remote-Containers: Attach to Running Container"
+
+PROJECTE ximo_app
+
+cd /mnt/c/Users/PC/OneDrive/Escritorio/Segundo\ DAW/Desarrollo\ web\ en\ entorno\ servidor/Practicas/ximo_app
+
+vendor/bin/sail up
+
+
+BBDD (MySQL) Entrar
+
+mysql -u ximo -p -h 127.0.0.1 -P 3306 example_app
+
+
+
+
