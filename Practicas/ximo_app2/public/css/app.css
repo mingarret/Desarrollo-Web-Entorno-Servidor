@@ -1,0 +1,142 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #222;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 2em;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 40px; /* Añadido para espacio extra */
+}
+
+.catalogo {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    padding: 0 50px;
+}
+
+
+.producto {
+    width: 200px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.producto img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.producto h3 {
+    font-size: 1.4em;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.producto p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.producto a {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #444;
+    color: #ccc;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px; /* Para dar espacio entre el contenido y el footer */
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* Espacio entre el título y la imagen */
+.producto-detalle img {
+    display: block;
+    margin: 20px auto; /* Agrega espacio arriba de la imagen y la centra */
+    border: 3px solid #ccc; /* Añade un borde a la imagen */
+    border-radius: 10px; /* Esquinas redondeadas */
+    max-width: 100%; /* Mantiene el tamaño de la imagen controlado */
+    height: auto;
+}
+
+/* Espacio adicional para el título */
+.producto-detalle h1 {
+    margin-bottom: 200px; /* Aumenta la separación entre el título y la imagen */
+    font-size: 2.5em; /* Opcional: Ajusta el tamaño del título */
+}
+
+
+/* Centrar el precio y otros detalles del producto */
+.producto-detalle {
+    text-align: center; /* Centra todo el contenido dentro del div */
+    margin-top: 20px;
+}
